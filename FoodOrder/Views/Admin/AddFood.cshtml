@@ -1,0 +1,57 @@
+﻿@model FoodItem
+
+@{
+    ViewData["Title"] = ViewData["Title"] ?? "Add Food Item";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">@ViewData["Title"]</h3>
+            </div>
+
+            <form asp-action="AddFood" method="post">
+                <div class="card-body">
+
+                    <div class="form-group">
+                        <label asp-for="Name">Food Name</label>
+                        <input type="text" asp-for="Name" class="form-control" required />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Description">Description</label>
+                        <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Price">Price</label>
+                        <input type="number" asp-for="Price" class="form-control" step="0.01" required />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="ImageUrl">Image URL</label>
+                        <input type="text" asp-for="ImageUrl" class="form-control" />
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" asp-for="isAvailable" class="form-check-input" />
+                        <label asp-for="isAvailable" class="form-check-label">
+                            Available for Order
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save
+                    </button>
+                    <a asp-action="FoodList" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

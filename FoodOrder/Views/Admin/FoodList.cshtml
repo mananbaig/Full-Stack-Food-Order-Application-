@@ -1,0 +1,64 @@
+﻿@model List<FoodItem>
+
+@{
+    ViewData["Title"] = "Manage Food Items";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Food Items</h3>
+                <div class="card-tools">
+                    <a asp-action="AddFood" class="btn btn-primary btn-sm">
+                        <i class="fas fa-plus"></i> Add New Food
+                    </a>
+                </div>
+            </div>
+
+            @if (TempData["Success"] != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show">
+                    @TempData["Success"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            }
+
+            <div class="card-body">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var food in Model)
+                        {
+                            <tr>
+                                <td>@food.FoodId</td>
+                                <td>@food.Name</td>
+                                <td>@food.Description</td>
+                                <td>$@food.Price</td>
+                                <td>
+                                    <a asp-action="EditFood" asp-route-id="@food.FoodId"
+                                       class="btn btn-warning btn-sm">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </a>
+                                    <a asp-action="DeleteFood" asp-route-id="@food.FoodId"
+                                       class="btn btn-danger btn-sm"
+                                       onclick="return confirm('Are you sure?')">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

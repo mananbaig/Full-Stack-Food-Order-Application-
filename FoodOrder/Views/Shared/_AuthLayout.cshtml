@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <!-- Optional page-specific styles -->
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <!-- jQuery must come first -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- Bootstrap JS (Bootstrap 5 bundle does NOT require jQuery, but safe to include after jQuery) -->
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Optional page-specific scripts -->
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

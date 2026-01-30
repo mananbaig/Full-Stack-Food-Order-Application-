@@ -1,0 +1,24 @@
+@{
+    Layout = null;
+}
+
+<section id="home" class="hero-section py-5" style="background: linear-gradient(90deg,#ff7a18,#af002d); color:white;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-7 text-white">
+                <h1 class="display-5 fw-bold">
+                    <i class="fas fa-pizza-slice"></i>
+                    Delicious Food At Your Doorstep
+                </h1>
+                <p class="lead">Quick Delivery • Fresh Food • Amazing Deals</p>
+                <a asp-controller="Menu" asp-action="Menu" class="btn btn-light btn-lg">
+                    Browse Menu <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-md-5 d-none d-md-block text-end">
+                <img src="/adminlte/img/food-hero.png" alt="food" class="img-fluid"
+                    style="max-height:240px; object-fit:contain; filter: drop-shadow(0 6px 20px rgba(0,0,0,0.2));" />
+            </div>
+        </div>
+    </div>
+</section>

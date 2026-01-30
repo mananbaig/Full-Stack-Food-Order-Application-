@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FoodOrder</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/animations.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/FoodOrder.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    @RenderSection("Styles", required: false)
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light navbar-animated" style="background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);">
+            <div class="container-fluid">
+                <a class="navbar-brand text-gradient" asp-area="" asp-controller="Home" asp-action="Index" style="font-weight: 900; font-size: 1.5rem;">
+                    <i class="fas fa-utensils"></i> FoodOrder
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-animated" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-animated" asp-area="" asp-controller="Home"
+                                asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                    <div style="display: flex; gap: 15px; align-items: center;">
+                        @await Component.InvokeAsync("CartBadge")
+                        @await Component.InvokeAsync("Notifications")
+                        <partial name="_LoginPartial" />
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3 animate-fade-in">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted" style="background: linear-gradient(135deg, #2c3e50 0%, #3d5a6c 100%); color: rgba(255, 255, 255, 0.8); margin-top: 60px;">
+        <div class="container py-4">
+            <div class="row mb-3">
+                <div class="col-md-4 mb-3 animate-slide-in-left">
+                    <h5 style="color: #ff7a18; font-weight: 700;">FoodOrder</h5>
+                    <p style="font-size: 0.9rem;">Delivering delicious food to your doorstep with the freshest ingredients and fastest service.</p>
+                </div>
+                <div class="col-md-4 mb-3 animate-slide-in-right">
+                    <h5 style="color: #ff7a18; font-weight: 700;">Quick Links</h5>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link-animated" style="padding: 0; font-size: 0.9rem;">Home</a></li>
+                        <li><a asp-area="" asp-controller="Menu" asp-action="Menu" class="nav-link-animated" style="padding: 0; font-size: 0.9rem;">Menu</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Privacy" class="nav-link-animated" style="padding: 0; font-size: 0.9rem;">Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3 animate-slide-in-right">
+                    <h5 style="color: #ff7a18; font-weight: 700;">Contact</h5>
+                    <p style="font-size: 0.9rem;">
+                        📞 +1 (555) 123-4567<br>
+                        📧 support@foodorder.com<br>
+                        📍 123 Food Street, City
+                    </p>
+                </div>
+            </div>
+            <hr style="border-color: rgba(255, 255, 255, 0.2);">
+            <div class="text-center">
+                &copy; 2025 - <strong>FoodOrder</strong> - <a asp-area="" asp-controller="Home" asp-action="Privacy" class="hover-underline" style="color: #ff7a18; text-decoration: none;">Privacy</a>
+                <p style="font-size: 0.85rem; margin-top: 10px; opacity: 0.8;">Crafted with <span style="color: #ff7a18;">❤</span> for food lovers</p>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="/js/signalr-notifications.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

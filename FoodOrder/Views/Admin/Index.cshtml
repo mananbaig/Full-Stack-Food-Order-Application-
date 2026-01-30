@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="row">
+    <div class="col-lg-3 col-6">
+        <div class="small-box bg-info">
+            <div class="inner">
+                <h3>@ViewBag.TotalFoods</h3>
+                <p>Total Food Items</p>
+            </div>
+            <div class="icon">
+                <i class="fas fa-utensils"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-6">
+        <div class="small-box bg-success">
+            <div class="inner">
+                <h3>@ViewBag.TotalOrders</h3>
+                <p>Total Orders</p>
+            </div>
+            <div class="icon">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+        </div>
+    </div>
+</div>

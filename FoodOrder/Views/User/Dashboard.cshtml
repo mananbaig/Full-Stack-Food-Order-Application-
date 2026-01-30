@@ -1,0 +1,43 @@
+﻿@model FoodOrder.Models.ViewModels.DashboardViewModel
+
+@{
+    Layout = "_myLayout";
+}
+
+<section>
+    <div class="container">
+        <h2 class="section-title text-center">Your Dashboard</h2>
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <div class="dashboard-card card-purple">
+                    <i class="fas fa-shopping-bag fa-3x mb-3"></i>
+
+
+                    <h2>@Model.TotalOrders</h2>
+                    <p>Total Orders</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="dashboard-card card-pink">
+                    <i class="fas fa-money-bill-wave fa-3x mb-3"></i>
+                    <h2>Rs. @Model.TotalSpent</h2>
+                    <p>Total Spent</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="dashboard-card card-orange">
+                    <i class="fas fa-hamburger fa-3x mb-3"></i>
+                    <h2>@Model.TotalItemsOrdered</h2>
+                    <p>Items Ordered</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="dashboard-card card-blue">
+                    <i class="fas fa-clock fa-3x mb-3"></i>
+                    <h2>@Model.PendingOrders</h2>
+                    <p>Pending Orders</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,136 @@
+﻿@using System.Linq
+@model IEnumerable<FoodOrder.Models.ViewModels.CartItemViewModel>
+
+@{
+    Layout = "_myLayout";
+    ViewData["Title"] = "Shopping Cart";
+}
+
+<link rel="stylesheet" href="~/css/cart.css">
+
+<section class="cart-section">
+    <div class="container">
+        <div class="cart-header">
+            <h2 class="cart-title">🛒 Your Shopping Cart</h2>
+            <p class="cart-subtitle">Review your items before checkout</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8">
+                @if (Model != null && Model.Any())
+                {
+                    <div class="cart-items-container">
+                        @foreach (var item in Model)
+                        {
+                            <div class="cart-item">
+                                <div class="item-image">
+                                    <span class="food-emoji">🍽️</span>
+                                </div>
+
+                                <div class="item-details">
+                                    <h5 class="item-name">@item.FoodName</h5>
+                                    <p class="item-price">Rs. @item.Price</p>
+                                </div>
+
+                                <div class="item-quantity">
+                                    <span class="qty-label">Qty:</span>
+                                    <span class="qty-value">@item.Quantity</span>
+                                </div>
+
+                                <div class="item-total">
+                                    <p class="total-price">Rs. @(item.Price* item.Quantity).ToString("F2")</p>
+                                </div>
+
+                                <div class="item-action">
+                                    <form asp-controller="Cart" asp-action="RemoveFromCart" method="post" style="display:inline;">
+                                        <input type="hidden" name="cartId" value="@item.CartId" />
+                                        <button type="submit" class="btn-remove" title="Remove from cart">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                    }
+                    </div>
+
+                    <!-- SUMMARY CARD -->
+                    <div class="order-summary">
+                        <h3 class="summary-title">Order Summary</h3>
+
+                        <div class="summary-row">
+                            <span class="summary-label">Subtotal:</span>
+                            <span class="summary-value">Rs. @Model.Sum(x => x.Price * x.Quantity)</span>
+                        </div>
+
+                        <div class="summary-row">
+                            <span class="summary-label">Delivery Charge:</span>
+                            <span class="summary-value free">FREE</span>
+                        </div>
+
+                        <div class="summary-row">
+                            <span class="summary-label">Tax (0%):</span>
+                            <span class="summary-value">Rs. 0.00</span>
+                        </div>
+
+                        <div class="summary-divider"></div>
+
+                        <div class="summary-row grand-total">
+                            <span class="summary-label">Grand Total:</span>
+                            <span class="summary-value-total">Rs. @Model.Sum(x => x.Price * x.Quantity)</span>
+                        </div>
+
+                        <form asp-controller="Order" asp-action="PlaceOrder" method="post">
+                            <button type="submit" class="btn-place-order">
+                                <i class="fas fa-check-circle"></i> Place Order
+                            </button>
+                        </form>
+
+                        <a asp-controller="Menu" asp-action="Menu" class="btn-continue-shopping">
+                            <i class="fas fa-arrow-left"></i> Continue Shopping
+                        </a>
+                    </div>
+                }
+                else
+                {
+                    <div class="empty-cart">
+                        <div class="empty-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3>Your Cart is Empty</h3>
+                        <p>Looks like you haven't added anything yet. Let's change that!</p>
+                        <a asp-controller="Menu" asp-action="Menu" class="btn-browse-menu">
+                            <i class="fas fa-utensils"></i> Browse Our Menu
+                        </a>
+                    </div>
+                }
+            </div>
+
+            <!-- INFO CARDS SIDEBAR -->
+            <div class="col-lg-4">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h5>Fast Delivery</h5>
+                    <p>Quick and reliable delivery to your doorstep</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h5>Secure Checkout</h5>
+                    <p>Your payment information is safe with us</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-undo"></i>
+                    </div>
+                    <h5>Easy Returns</h5>
+                    <p>Not satisfied? Return items hassle-free</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

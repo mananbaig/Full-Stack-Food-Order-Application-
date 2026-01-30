@@ -1,0 +1,164 @@
+﻿/* Page background */
+.identity-page {
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.85), rgba(255, 87, 34, 0.45)), url('https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=1600&h=900&fit=crop') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 15px;
+}
+
+/* Card */
+.identity-card {
+    background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+    border-radius: 20px;
+    padding: 40px 40px;
+    width: 100%;
+    max-width: 560px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45), 0 0 40px rgba(255, 87, 34, 0.25);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+    /* Logo / Title */
+    .identity-card h1,
+    .identity-card h2 {
+        text-align: center;
+        font-weight: 800;
+        color: #ff5722;
+        margin-bottom: 10px;
+        letter-spacing: 1px;
+    }
+
+    .identity-card p {
+        text-align: center;
+        color: #666;
+        font-size: 0.95rem;
+        margin-bottom: 30px;
+    }
+
+    /* Form groups */
+    .identity-card .form-group,
+    .identity-card .form-floating {
+        margin-bottom: 18px;
+    }
+
+    /* Inputs */
+    .identity-card input {
+        border-radius: 12px;
+        padding: 12px 14px;
+        border: 1px solid #ddd;
+        transition: all 0.3s ease;
+    }
+
+        .identity-card input:focus {
+            border-color: #ff5722;
+            box-shadow: 0 0 0 0.15rem rgba(255, 87, 34, 0.25);
+        }
+
+    /* Labels (floating) */
+    .identity-card label {
+        color: #777;
+    }
+
+    /* Buttons */
+    .identity-card button,
+    .identity-card .btn-primary {
+        background: linear-gradient(135deg, #ff5722 0%, #ff8e53 50%, #ffb74d 100%);
+        border: none;
+        border-radius: 30px;
+        padding: 11px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        width: 100%;
+        color: #fff;
+        letter-spacing: 0.4px;
+        box-shadow: 0 6px 18px rgba(255, 87, 34, 0.45);
+        transition: all 0.3s ease;
+    }
+
+        .identity-card button:hover,
+        .identity-card .btn-primary:hover {
+            background: linear-gradient(135deg, #e64a19, #ff6b35, #ff9a50);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 87, 34, 0.6);
+        }
+
+    /* Links */
+    .identity-card a {
+        color: #ff5722;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+        .identity-card a:hover {
+            color: #e64a19;
+            text-decoration: underline;
+        }
+
+    /* Validation messages */
+    .identity-card .text-danger {
+        font-size: 0.85rem;
+    }
+
+    /* Ensure validation messages appear below inputs (not inline with floating labels) */
+    .identity-card .form-floating {
+        position: relative;
+        padding: 0 8px; /* horizontal inner padding for consistent spacing */
+    }
+
+    .identity-card .form-floating .text-danger {
+        display: block;
+        margin-top: 0.45rem;
+    }
+
+    /* Make inputs take full available width and feel larger */
+    .identity-card input.form-control {
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 12px;
+        padding: 14px 16px;
+        font-size: 1rem;
+    }
+
+/* External login buttons */
+.external-login button {
+    background: #ffffff;
+    border-radius: 30px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    font-weight: 500;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+    .external-login button:hover {
+        background: #f5f5f5;
+        transform: translateY(-2px);
+    }
+
+/* Responsive */
+@media (max-width: 480px) {
+    .identity-card {
+        padding: 30px 22px;
+    }
+
+        .identity-card h1,
+        .identity-card h2 {
+            font-size: 1.4rem;
+        }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

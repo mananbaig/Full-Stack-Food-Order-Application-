@@ -1,0 +1,153 @@
+﻿@{
+    Layout = "_myLayout";
+    ViewData["Title"] = "Order Confirmation";
+}
+
+<link rel="stylesheet" href="~/css/order-confirmation.css">
+
+<section class="confirmation-section">
+    <div class="container">
+        <div class="confirmation-container">
+            <!-- Success Icon Animation -->
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+
+            <!-- Confirmation Header -->
+            <div class="confirmation-header">
+                <h1 class="confirmation-title">Order Confirmed! 🎉</h1>
+                <p class="confirmation-subtitle">Thank you for your order. Your delicious food is being prepared!</p>
+            </div>
+
+            <!-- Order Details Card -->
+            <div class="order-details-card">
+                <div class="details-section">
+                    <h3 class="section-title">Order Details</h3>
+
+                    <div class="detail-row">
+                        <span class="detail-label">Order Status:</span>
+                        <span class="detail-value status-pending">
+                            <i class="fas fa-hourglass-start"></i> Pending
+                        </span>
+                    </div>
+
+                    <div class="detail-row">
+                        <span class="detail-label">Order Date & Time:</span>
+                        <span class="detail-value">@DateTime.UtcNow.ToString("dd MMM yyyy, hh:mm tt")</span>
+                    </div>
+
+                    <div class="detail-row">
+                        <span class="detail-label">Order Type:</span>
+                        <span class="detail-value">
+                            <i class="fas fa-truck"></i> Delivery
+                        </span>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="details-section">
+                    <h3 class="section-title">Delivery Information</h3>
+
+                    <div class="detail-row">
+                        <span class="detail-label">Estimated Delivery:</span>
+                        <span class="detail-value">30-45 minutes</span>
+                    </div>
+
+                    <div class="detail-row">
+                        <span class="detail-label">Delivery Charge:</span>
+                        <span class="detail-value free">FREE</span>
+                    </div>
+
+                    <div class="detail-row">
+                        <span class="detail-label">Delivery Address:</span>
+                        <span class="detail-value">Lahore, Punjab, PK</span>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="details-section">
+                    <h3 class="section-title">What's Next?</h3>
+
+                    <div class="steps-container">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h5>Preparing</h5>
+                                <p>Your food is being prepared with love</p>
+                            </div>
+                        </div>
+
+                        <div class="step-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h5>On The Way</h5>
+                                <p>Your order is out for delivery</p>
+                            </div>
+                        </div>
+
+                        <div class="step-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h5>Delivered</h5>
+                                <p>Enjoy your delicious meal!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <a asp-controller="Order" asp-action="OrderHistory" class="btn btn-track-order">
+                    <i class="fas fa-map-location-dot"></i> Track Order
+                </a>
+
+                <a asp-controller="Menu" asp-action="Menu" class="btn btn-order-more">
+                    <i class="fas fa-plus-circle"></i> Order More
+                </a>
+            </div>
+
+            <!-- Info Cards -->
+            <div class="info-section">
+                <div class="info-box">
+                    <div class="info-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h5>Need Help?</h5>
+                    <p>Call us at +92-123-456-7890</p>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h5>Email Support</h5>
+                    <p>support@foodorder.com</p>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h5>Live Chat</h5>
+                    <p>Chat with us for instant help</p>
+                </div>
+            </div>
+
+            <!-- Confirmation Message -->
+            <div class="confirmation-message">
+                <p>A confirmation email has been sent to your registered email address. You can track your order in real-time!</p>
+            </div>
+        </div>
+    </div>
+</section>

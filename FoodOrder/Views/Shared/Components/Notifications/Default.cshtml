@@ -1,0 +1,9 @@
+@model IEnumerable<string>
+<div id="notifications" class="ms-3">
+    <ul class="list-unstyled mb-0">
+        @foreach (var n in Model)
+        {
+            <li class="small">@n</li>
+        }
+    </ul>
+</div>

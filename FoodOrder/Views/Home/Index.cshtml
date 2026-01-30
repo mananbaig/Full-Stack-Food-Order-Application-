@@ -1,0 +1,20 @@
+﻿@model FoodOrder.Models.ViewModels.HomeIndexViewModel
+
+@{
+    Layout = "_myLayout";
+}
+
+@await Html.PartialAsync("_HomeHero")
+
+<section class="bg-white py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                @await Html.PartialAsync("_FeaturedFoods", Model.Featured)
+            </div>
+            <div class="col-md-4">
+                @await Html.PartialAsync("_LatestFoods", Model.Latest)
+            </div>
+        </div>
+    </div>
+</section>

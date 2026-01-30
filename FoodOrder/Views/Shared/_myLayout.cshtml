@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoyalFork - Food Delivery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/StyleSheet.css" asp-append-version="true" />
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="#"><i class="fas fa-utensils"></i> RoyalFork</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Menu" asp-action="Menu">Menu</a></li>
+                        @if (User.Identities.Any(identity => identity.IsAuthenticated))
+                        {
+                          <li class="nav-item"><a class="nav-link" asp-controller="Cart" asp-action="Cart">Cart</a></li>
+                          <li class="nav-item">
+                              <a class="nav-link" asp-controller="User"
+                               asp-action="Dashboard">Dashboard</a>
+                          </li>
+                        }
+                         
+                        <li class="nav-item"><a class="nav-link" asp-controller="Account" asp-action="Login">Login</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Account"
+                                asp-action="Register">Register</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <footer class="bg-dark text-light pt-4 pb-3 mt-5">
+        <div class="container text-center">
+            <h5 class="fw-bold mb-3"><i class="fas fa-utensils me-2"></i> RoyalFork</h5>
+            <p class="small mb-2">
+                Delicious meals delivered fresh to your doorstep.
+            </p>
+            <div class="mb-3">
+                <a href="#" class="text-light text-decoration-none me-3 small">Home</a>
+                <a href="#" class="text-light text-decoration-none me-3 small">Menu</a>
+                <a href="#" class="text-light text-decoration-none me-3 small">Cart</a>
+                <a href="#" class="text-light text-decoration-none small">Contact</a>
+            </div>
+            <p class="small text-muted mb-0">
+                © 2025 RoyalFork. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
